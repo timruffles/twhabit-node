@@ -1,1 +1,1 @@
-web: coffee index.coffee
+worker: coffee index.coffee
