@@ -18,7 +18,8 @@ redis.debug_mode = false
 createRedisClient = ->
   logger.debug "Connecting to redis"
   redisUrl = url.parse getEnv("REDIS_URL","redis://localhost:6379")
-  client = redis.createClient(redisUrl.port,redisUrl.hostname)
+  [_user, pass] = (redisUrl.auth || ":").split(":")
+  client = redis.createClient(redisUrl.port,redisUrl.hostname,auth_pass: pass)
   client.on "error", (err) ->
     logger.error "Redis client had an error"
     logger.error err
