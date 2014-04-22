@@ -1,1 +1,1 @@
-worker: coffee index.coffee
+worker: node_modules/.bin/coffee index.coffee
