@@ -48,7 +48,7 @@ twitterWatcher.on "tweet", (tweet) ->
     screen_name: tweet.user.screen_name
   })
 
-twitterWatcher.connect {follow: getEnv("USER_ID",2458464769)}
+twitterWatcher.connect {track: getEnv("USER_ID","@twhabit")}
 
 publisher = require("./twitter_publish")
 publisher.watch(redisClient,twit,"tweets_sent")
